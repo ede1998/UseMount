@@ -3,6 +3,6 @@
 ## Notes: Addon that uses the Qiraji Resonating Crystal in AQ40, normal mount otherwise
 ## Author: ede1998
 ## Version: 1.0
-##SavedVariablesPerCharacter: aq40_mount, normal_mount
+## SavedVariablesPerCharacter: aq40_mount, normal_mount
 
 UseMount.lua
