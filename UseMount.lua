@@ -164,12 +164,10 @@ function RegisterSlashCommand()
 			if action then
 				action(mount)
 				UpdateMacro()
-			else
-				PrintHelp()
+				return
 			end
-		else
-			PrintHelp()
 		end
+		PrintHelp()
 	end, "usemount", "um")
 end
 
