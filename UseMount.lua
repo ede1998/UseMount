@@ -101,8 +101,8 @@ end
 
 function IsZoneAQ40()
 	local zn = GetRealZoneText();
-	--return zn and string.find(zn, "The Stockade");
-	return zn and string.find(zn, "The Temple of Ahn'Qiraj");
+	--return zn == "The Stockade";
+	return zn == "Ahn'Qiraj";
 end
 
 
