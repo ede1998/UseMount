@@ -149,20 +149,24 @@ end
 local slash_command = {
 	["aq40"] = function (mount) aq40_mount = mount print("Setting "..mount.." as AQ40 mount.") end,
 	["normal"] = function (mount) normal_mount = mount print("Setting "..mount.." as normal mount.") end,
+	["reload"] = function (mount) end, -- nothing to do because macro is automatically refreshed after action
 }
 
 function PrintHelp()
 	print("AQ40 Mount (/um aq40 <mount name>): "..(aq40_mount or "not set"))
 	print("Normal Mount (/um normal <mount name>): "..(normal_mount or "not set"))
+	print("Type /um reload to refresh the macro")
 end
 
 function RegisterSlashCommand()
 	SlashCmdList_AddSlashCommand("USEMOUNT_SLASHCMD", function(parameters)
-		local command, mount = string.match(parameters, "^(.-)%s+(.*)$")
-		if command and mount then
+		local command, mount = string.match(parameters, "^([^ ]+)%s*(.*)$")
+		if command then
 			local action = slash_command[command]
 			if action then
-				action(mount)
+				if mount then
+					action(mount)
+				end
 				UpdateMacro()
 				return
 			end
